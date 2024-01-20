@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cp14sotx61swd"]
+
+[ext_resource type="Script" path="res://piece.gd" id="1_p8u0t"]
+[ext_resource type="Script" path="res://piece_sprite.gd" id="2_m4rc2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1yoe6"]
+
+[node name="piece" type="Node2D"]
+script = ExtResource("1_p8u0t")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+region_rect = Rect2(1669, 58, 175, 229)
+script = ExtResource("2_m4rc2")
+
+[node name="Area2D" type="Area2D" parent="Sprite"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Area2D"]
+shape = SubResource("RectangleShape2D_1yoe6")
+
+[connection signal="moved" from="Sprite" to="." method="_on_sprite_moved"]
